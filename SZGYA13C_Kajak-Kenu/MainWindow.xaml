@@ -7,6 +7,41 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Label x:Name="test" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width=".5*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+
+        <DataGrid x:Name="OsszDG" Grid.Column="0" AutoGenerateColumns="False" VerticalAlignment="Top" HorizontalAlignment="Center">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Név" Binding="{Binding Nev}" />
+                <DataGridTextColumn Header="Hajó ID" Binding="{Binding HajoID}" />
+                <DataGridTextColumn Header="Hajó Típus" Binding="{Binding HajoTipus}" />
+                <DataGridTextColumn Header="Személyek" Binding="{Binding Szemelyek}" />
+                <DataGridTextColumn Header="Elvitel Óra" Binding="{Binding ElvitelOra}" />
+                <DataGridTextColumn Header="Elvitel Perc" Binding="{Binding ElvitelPerc}" />
+                <DataGridTextColumn Header="Vissza Óra" Binding="{Binding VisszaOra}" />
+                <DataGridTextColumn Header="Vissza Perc" Binding="{Binding VisszaPerc}" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Grid Grid.Column="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width=".5*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Row="0" VerticalAlignment="Top" HorizontalAlignment="Center">
+                <TextBlock Text="Idő:" HorizontalAlignment="Center" />
+                <ComboBox x:Name="idoCB" Width="50" SelectionChanged="idoCB_SelectionChanged" />
+            </StackPanel>
+
+            <DataGrid x:Name="vizenHajoDG" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+
+        </Grid>
     </Grid>
 </Window>
